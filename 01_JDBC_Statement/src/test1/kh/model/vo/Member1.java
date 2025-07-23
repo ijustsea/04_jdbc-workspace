@@ -1,38 +1,24 @@
-package com.kh.model.vo;
+package test1.kh.model.vo;
 
 import java.sql.Date;
 
-public class Member {
-	
-	/*  USERNO
-		USERID
-		USERPWD
-		USERNAME
-		GENDER
-		AGE
-		EMAIL
-		PHONE
-		ADDRESS
-		HOBBY
-		ENROLLDATE 
-	 */
-	//필드는 기본적으로 DB컬럼명과 유사하게 작업 + 낙타표기법
-	
-	private int userNo;
-	private String userId;
-	private String userPwd;
-	private String userName;
-	private String gender;
-	private int age;
-	private String email;
-	private String phone;
-	private String address;	
-	private String hobby;
-	private Date enrollDate;	
-	
-	public Member() {}
+public class Member1 {
 
-	public Member(int userNo, String userId, String userPwd, String userName, String gender, int age, String email,
+	private int userNo;
+	private String userId;	
+	private String userPwd; 
+	private String userName; 
+	private String gender; 
+	private int age; 
+	private String email; 
+	private String phone; 
+	private String address; 
+	private String hobby; 
+	private Date enrollDate; 
+	
+	public Member1() {}
+
+	public Member1(int userNo, String userId, String userPwd, String userName, String gender, int age, String email,
 			String phone, String address, String hobby, Date enrollDate) {
 		super();
 		this.userNo = userNo;
@@ -43,13 +29,13 @@ public class Member {
 		this.age = age;
 		this.email = email;
 		this.phone = phone;
-		this.address = address;		
+		this.address = address;
 		this.hobby = hobby;
 		this.enrollDate = enrollDate;
 	}
 	
-	public Member(String userId, String userPwd, String userName, String gender, int age, String email, String phone, String address, 
-			String hobby) {
+	public Member1(String userId, String userPwd, String userName, String gender, int age, String email, String phone,
+			String address, String hobby) {
 		super();
 		this.userId = userId;
 		this.userPwd = userPwd;
@@ -58,10 +44,12 @@ public class Member {
 		this.age = age;
 		this.email = email;
 		this.phone = phone;
-		this.address = address;		
+		this.address = address;
 		this.hobby = hobby;
 	}
 
+	//getter setter
+	
 	public int getUserNo() {
 		return userNo;
 	}
@@ -118,6 +106,14 @@ public class Member {
 		this.email = email;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -141,22 +137,15 @@ public class Member {
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
+
+	//toString
 	
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName
-				+ ", gender=" + gender + ", age=" + age + ", email=" + email +  ", phone=" + phone + ", address=" + address + ", hobby="
-				+ hobby + ", enrollDate=" + enrollDate + "]";
-	}
+		return "Member1 [userNo=" + userNo + ", userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName
+				+ ", gender=" + gender + ", age=" + age + ", email=" + email + ", phone=" + phone + ", address="
+				+ address + ", hobby=" + hobby + ", enrollDate=" + enrollDate + "]";
+	}	
 	
 	
 	

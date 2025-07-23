@@ -1,29 +1,20 @@
-package com.kh.view;
-//View : 사용자가 보게될 시각적요소 입출력
+package test1.kh.view;
+//view : 사용자가 보게 될 시각적요소 입출력
+//컨트롤러와 스캐너를 필드부에 전역으로 생성해둔다.
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.kh.controller.MemberController;
-import com.kh.model.vo.Member;
+import test1.kh.controller.MemberController1;
+import test1.kh.model.vo.Member1;
 
-public class MemberMenu {
+public class MemberMenu1 {
 	
-	//필드 생성
-	
-	//전역으로 Scanner생성  전역객체는 보통 접근제한자 작성한다.
+	private MemberController1 mc1 = new MemberController1();
 	private Scanner sc = new Scanner(System.in);
-	//MemberController 객체생성
-	private MemberController mc = new MemberController();
 	
 	
-	
-	/**
-	 * 사용자게 보게 될 첫 화면(메인화면)
-	 */
-	public void mainMenu() {
-		
-		
+	public void mainMenu1() {
 		
 		while(true) {
 			
@@ -39,28 +30,25 @@ public class MemberMenu {
 			System.out.print(">> 메뉴 선택 : ");
 			int menu =sc.nextInt();
 			sc.nextLine();//버퍼에 남은 공백제거
-			
+						
 			switch(menu) {
-			case 1: inputMember(); break;
-			case 2: mc.selectList();  break;
-			case 3: break;
-			case 4: break;
-			case 5: break;
-			case 6: break;
-			case 0: System.out.println("이용 감사합니다."); return;
-			default : System.out.println("올바르지않은 메뉴번호, 다시입력바랍니다."); 
-			}			
+			case 1 : inputMember(); break; 
+			case 2 : mc1.selectList();  break;
+			case 3 : break;
+			case 4 : break;
+			case 5 : break;
+			case 6 : break;
+			case 0 : System.out.println("이용 감사합니다. 안녕히가세요");return;
+			default :  System.out.println("잘못된 입력입니다. 다시 입력하세요");
+			
+			}	
+			
 			
 		}
-				
 		
 		
 	}
 	
-	
-	/**
-	 * 아이디부터 취미까지 입력받기
-	 */
 	public void inputMember() {
 		System.out.print("아이디 : ");
 		String userId = sc.nextLine();
@@ -88,12 +76,9 @@ public class MemberMenu {
 		
 		System.out.print("취미 : ");
 		String hobby = sc.nextLine();
-		
-		//회원 추가 요청 == Contoller 메소드 호출
-		mc.insertMember(userId, userPwd, userName, gender, age, email, phone, address, hobby);
-		
+		//회원 추가요청 -> MemberController1 메소드 호출 
+		mc1.insertMember(userId, userPwd, userName, gender, age, email, phone, address, hobby);
 	}
-	//---------------------------------------응답화면------------------------------------
 	
 	/** 
 	 * 서비스 요청 처리후 성공했을경우 사용자가 보게 될 응답화면
@@ -111,32 +96,20 @@ public class MemberMenu {
 		System.out.println("\n 서비스요청 실패 : "+ message);
 		
 	}
-	
-	
-	/** 
-	 * 서비스 조회서비스 요청시 조회결과가 없을 경우 사용자에게 출력할 응답화면
-	 * @param message
-	 */
-	public void displayNoDate(String message) {
-		System.out.println("\n "+ message);
+
+	public void displayNoData(String message) {
+		System.out.println("\n"+message);
 		
 	}
-	
-	/**서비스 조회서비스 요청시 조회결과가 있을 경우 사용자에게 출력할 응답화면
-	 * @param message
-	 */
-	public void displayMemberList(ArrayList<Member> list) {
-		System.out.println("\n조회된 데이터는 다음과 같습니다. ");
+
+	public void displayMemberList(ArrayList<Member1> list) {
+		System.out.println("\n 조회된결과는 다음과 같습니다.");
 		
-		for(Member a : list) {//a= list.get(0) -> a = list.get(1) ..... 있을떄까지
+		for(Member1 a : list) {
 			System.out.println(a);
 		}
 		
 	}
-	
-	
-	
-	
 	
 	
 }
