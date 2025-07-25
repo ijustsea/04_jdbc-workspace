@@ -5,7 +5,10 @@ import com.kh.view.MemberMenu;
 public class Run {
 
 	
-	public static void main(String[] args){
+	
+	public static void main(String[] args){	
+		
+		
 		/*
 		 * MVC(model view controller) 패턴
 		 * Model : 데이터 처리 담당 (데이터를 담기위한 클래스(VO)v), 데이터저장공간(DATABASE)에 직접적으로 접근해서 데이터 주고받기(DAO)) 
