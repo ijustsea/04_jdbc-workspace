@@ -29,7 +29,7 @@ public class MemberDao {
 	private Properties prop = new Properties(); 
 	
 	//사용자가 어떤 서비스 요청할떄마다 new MemberDao().xxx
-	//그럼 기본생성자가 매번실행되니 기본생성자에 적어두자? 
+	//그럼 기본생성자가 매번실행되니 기본생성자에 쿼리.xml 읽게 하는 기능 적어두자? 
 	public MemberDao() {//기본생성자
 		try {
 			prop.loadFromXML(new FileInputStream("resources/query.xml"));
