@@ -99,11 +99,12 @@ public class ProductMenu {
 		System.out.println("\n"+message);		
 	}
 
-	public void displayProductList(ArrayList<Product> list) {
-		System.out.println("\n조회된 상품들은 다음과 같습니다. ");
+	public void displayProductList(ArrayList<Product> list) {		
 		
+		System.out.println("======================== 상품 리스트 ======================== ");
+		System.out.println(Product.getHeader1());
 		for(Product a : list) {
-			System.out.println(a);
+			System.out.println(a.toString1());
 		}
 	}
 
@@ -120,10 +121,10 @@ public class ProductMenu {
 		while(true) {
 			System.out.println("\n===상품 입출고 프로그램===");
 			System.out.println("1.전체 입출고 내역 조회");//SELECT * 
-			System.out.println("2.입고 내역만 조회");//SELECT STOCK =입고
-			System.out.println("3.입고 내역만 조회");//SELECT STOCK =입고
-			System.out.println("4.상품 입고");//DELETE
-			System.out.println("5.상품 출고");//selectByProductName			
+			System.out.println("2.입고 내역만 조회");//SELECT STOCK =입고 INCOMING IC
+			System.out.println("3.출고 내역만 조회");//SELECT STOCK =출고 OUTGOING OG
+			System.out.println("4.상품 입고");
+			System.out.println("5.상품 출고");		
 			System.out.println("9.메인메뉴로 돌아가기");//return
 		
 			System.out.print("\n메뉴 입력 : ");
@@ -132,24 +133,60 @@ public class ProductMenu {
 		
 			switch(menu) {
 			case 1 : pc.selectIoList(); break;
-			case 2 :  break;
-			case 3 :  break;
-			case 4 :  break;
-			case 5 :  break;				
+			case 2 : pc.selectICList(); break;
+			case 3 : pc.selectOGList(); break;
+			case 4 : updateIC(); break;
+			case 5 : updateOG(); break;				
 			case 9 : System.out.println("메인메뉴로 이동합니다."); return;
 			default : System.out.println("잘못된 입력입니다. 메뉴번호를 다시 입력하세요.");
 			}
 			
 		}	
 	}
+	
+	public void updateIC() {
+		System.out.print("상품 아이디 : ");
+		String productId=sc.nextLine();
+		System.out.print("입고 수량 : ");
+		int amount = sc.nextInt();
+		sc.nextLine();
+		
+		pc.updateIC(productId, amount);
+	}
+	
+	public void updateOG() {
+		System.out.print("상품 아이디 : ");
+		String productId=sc.nextLine();
+		System.out.print("출고 수량 : ");
+		int amount = sc.nextInt();
+		sc.nextLine();
+		
+		pc.updateOG(productId, amount);
+	}
+
+	
 
 	public void displayProductIoList(ArrayList<ProductIo> list) {
-		System.out.println("==================== 입출고 리스트 ==================== ");
+		System.out.println("======================== 입출고 리스트 ======================== ");
 		System.out.println(ProductIo.getHeader());
 		for(ProductIo a : list) {
 			System.out.println(a);
 		}
 	}
 	
-
+	public void displayProductICList(ArrayList<ProductIo> list) {
+		System.out.println("======================== 입고 리스트 ======================== ");
+		System.out.println(ProductIo.getHeader());
+		for(ProductIo a : list) {
+			System.out.println(a);
+		}
+	}
+	
+	public void displayProductOGList(ArrayList<ProductIo> list) {
+		System.out.println("======================== 출고 리스트 ======================== ");
+		System.out.println(ProductIo.getHeader());
+		for(ProductIo a : list) {
+			System.out.println(a);
+		}
+	}
 }

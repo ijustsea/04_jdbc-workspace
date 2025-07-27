@@ -94,4 +94,46 @@ public class ProductController {
 		
 	}
 
+	public void selectICList() {
+		ArrayList<ProductIo> list =new ProductService().selectICList();
+		 
+		 if(list.isEmpty()) {
+			 new ProductMenu().displayNoData("조회 결과가 없습니다.");
+		 }else {
+			 new ProductMenu().displayProductICList(list);
+		 }	
+	}
+
+	public void selectOGList() {
+		ArrayList<ProductIo> list =new ProductService().selectOGList();
+		 
+		 if(list.isEmpty()) {
+			 new ProductMenu().displayNoData("조회 결과가 없습니다.");
+		 }else {
+			 new ProductMenu().displayProductOGList(list);
+		 }
+		
+	}
+
+	public void updateIC(String productId, int amount) {
+		int result = new ProductService().updateIC(productId, amount);	
+		
+		if(result>0) {
+			new ProductMenu().displaySuccess("성공적으로 입고 되었습니다.");
+		}else {
+			new ProductMenu().displayFail("상품 입고가 실패하였습니다.");
+		}
+		
+	}
+
+	public void updateOG(String productId, int amount) {
+		int result = new ProductService().updateOG(productId, amount);	
+		
+		if(result>0) {
+			new ProductMenu().displaySuccess("성공적으로 출고 되었습니다.");
+		}else {
+			new ProductMenu().displayFail("상품 출고가 실패하였습니다.");
+		}		
+	}
+
 }
