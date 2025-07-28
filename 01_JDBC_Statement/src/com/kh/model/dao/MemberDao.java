@@ -22,7 +22,6 @@ public class MemberDao {
 	 */
 	public int insertMember(Member m) {
 		// insert문 => 처리된행수 => 트랜잭션처리
-
 		// 필요변수 세팅
 
 		int result = 0; // 처리된 결과 받아줄 인트형 변수
