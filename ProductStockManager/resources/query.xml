@@ -68,5 +68,71 @@
 		  JOIN PRODUCT USING(PRODUCT_ID)
 	</entry>
 	
+	<entry key="selectICList">
+		SELECT 
+			    IO_NUM
+			  , PRODUCT_ID
+			  , P_NAME
+			  , IO_DATE
+			  , AMOUNT
+			  ,	STATUS		
+		  FROM PRODUCT_IO
+		  JOIN PRODUCT USING(PRODUCT_ID)
+		  WHERE STATUS = '입고'
+	</entry>
+	
+	<entry key="selectOGList">
+		SELECT 
+			    IO_NUM
+			  , PRODUCT_ID
+			  , P_NAME
+			  , IO_DATE
+			  , AMOUNT
+			  ,	STATUS		
+		  FROM PRODUCT_IO
+		  JOIN PRODUCT USING(PRODUCT_ID)
+		  WHERE STATUS = '출고'
+	</entry>
+	
+	<entry key="updateIC">
+		INSERT INTO 
+		PRODUCT_IO 
+                  (
+                    IO_NUM
+                  , PRODUCT_ID
+                  , IO_DATE
+                  , AMOUNT
+                  , STATUS                  
+                  )
+            VALUES
+                  (
+                    SEQ_IO_NUM.NEXTVAL
+                  , ?
+                  , DEFAULT
+                  , ?
+                  , '입고'
+                  )	
+	</entry>
+	
+	<entry key="updateOG">
+		INSERT INTO 
+		PRODUCT_IO 
+                  (
+                    IO_NUM
+                  , PRODUCT_ID
+                  , IO_DATE
+                  , AMOUNT
+                  , STATUS                  
+                  )
+            VALUES
+                  (
+                    SEQ_IO_NUM.NEXTVAL
+                  , ?
+                  , DEFAULT
+                  , ?
+                  , '출고'
+                  )	
+	</entry>
+	
 
 </properties>

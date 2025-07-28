@@ -73,12 +73,13 @@ public class ProductIo {
 
 	@Override
 	public String toString() {
-		return  String.format("%-10s %-12s %-20s %-15s %-12s %-10s",
+		
+		return  String.format("%-8s %-10s %-10s %-15s %-5s %3s",
 				ioNum, productId,  pName, ioDate ,  amount , status);
 	}
 	
 	public static String getHeader() {
-	    return String.format("%-10s %-12s %-20s %-15s %-12s %-10s",
+	    return String.format("%-7s %-10s %-7s %-13s %-5s %-8s",
 	            "입출고번호", "상품ID", "상품명", "입출고일", "입출고수량", "입출고상태");
 	}
 	

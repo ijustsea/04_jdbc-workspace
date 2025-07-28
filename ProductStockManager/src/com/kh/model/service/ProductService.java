@@ -80,4 +80,52 @@ public class ProductService {
 		return list;		
 	}
 
+	public ArrayList<ProductIo> selectICList() {
+		Connection conn = getConnection();
+		
+		ArrayList<ProductIo> list = new ProductDao().selectICList(conn);
+				
+		close(conn);		
+		return list;
+	}
+
+	public ArrayList<ProductIo> selectOGList() {
+		Connection conn = getConnection();
+		
+		ArrayList<ProductIo> list = new ProductDao().selectOGList(conn);
+				
+		close(conn);		
+		return list;
+	}
+
+	public int updateIC(String productId, int amount) {
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().updateIC(conn, productId, amount);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}	
+		close(conn);
+		
+		return result;
+	}
+
+	public int updateOG(String productId, int amount) {
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().updateOG(conn, productId, amount);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}	
+		close(conn);
+		
+		return result;
+	}
+
 }

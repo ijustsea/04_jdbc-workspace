@@ -70,4 +70,15 @@ public class Product {
 	}
 	
 	
+	public String toString1() {
+		
+		return  String.format("%-8s %-10s %-8s %-15s %-5s",
+				productId, pName, price, description ,  stock );
+	}
+	
+	public static String getHeader1() {
+	    return String.format("%-7s %-10s %-7s %-13s %-5s",
+	             "상품ID", "상품명", "가격", "부가설명", "재고수량");
+	}
+	
 }
